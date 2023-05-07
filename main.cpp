@@ -45,7 +45,7 @@ int main() {
     shapes.push_back(shape);
   }
 
-  Point text_location(0, 0);
+  Point text_location(110, 115);
 
   Pen BG = graphics.create_pen(120, 40, 60);
   Pen WHITE = graphics.create_pen(255, 255, 255);
