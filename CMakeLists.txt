@@ -14,6 +14,8 @@ set(CMAKE_CXX_STANDARD 17)
 # Initialize the SDK
 pico_sdk_init()
 
+add_subdirectory(mandelbrot)
+
 # Add your source files
 add_executable(${NAME}
     main.cpp # <-- Add source files here!
@@ -26,12 +28,20 @@ include(common/pimoroni_bus)
 include(libraries/bitmap_fonts/bitmap_fonts)
 include(libraries/hershey_fonts/hershey_fonts)
 include(libraries/pico_explorer/pico_explorer)
+include(drivers/rgbled/rgbled)
+include(drivers/button/button)
+include(libraries/pico_display_2/pico_display_2)
 
-# Don't forget to link the libraries you need!
-target_link_libraries(${NAME}
-    pimoroni_i2c
-    pico_explorer # <-- List libraries here!
-)
+# Pull in pico libraries that we need
+target_link_libraries(${NAME}   pico_stdlib
+                                hardware_spi
+                                hardware_pwm
+                                hardware_dma
+                                rgbled
+                                button
+                                pico_display_2
+                                st7789
+                                pico_graphics)
 
 # create map/bin/hex file etc.
 pico_add_extra_outputs(${NAME})
