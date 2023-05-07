@@ -14,8 +14,6 @@ set(CMAKE_CXX_STANDARD 17)
 # Initialize the SDK
 pico_sdk_init()
 
-add_subdirectory(mandelbrot)
-
 # Add your source files
 add_executable(${NAME}
     main.cpp # <-- Add source files here!
