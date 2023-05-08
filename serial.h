@@ -79,6 +79,8 @@ typedef enum {
     sensor_crc_byte2
 } sensor_data_byte_t;
 
+extern int ser_payloadsSent;
+
 /* Public function prototypes */
 int serial_init(void);
 

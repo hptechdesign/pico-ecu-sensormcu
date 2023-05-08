@@ -49,6 +49,7 @@ static BYTE rx_sensor_data[SENSOR_FRAME_SIZE];
 static BYTE tx_control_data[CONTROL_FRAME_SIZE];
 
 static serial_modes_t serial_mode;
+int ser_payloadsSent          = 0;
 
 /**
  * @brief serial_sendSensorPacket
@@ -61,6 +62,7 @@ void serial_sendSensorPacket(void)
         serial_encapsulateSensorData();
         // check this is actually polled tx - I've assumed it is
         serial_SendBuf(&tx_sensor_data[0], SENSOR_FRAME_SIZE);
+        ser_payloadsSent++;
     }
 }
 
