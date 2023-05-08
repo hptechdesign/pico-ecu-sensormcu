@@ -16,8 +16,11 @@ pico_sdk_init()
 
 # Add your source files
 add_executable(${NAME}
-    main.cpp # <-- Add source files here!
+    main.cpp
+    serial.cpp
+    sensor.cpp
 )
+
 
 # Include required libraries
 # This assumes `pimoroni-pico` is stored alongside your project
